@@ -1,9 +1,22 @@
 language: ruby
 rvm:
 - 2.4.1
-
 install:
 - bundle install --path vendor/bundle
-
 script:
+- bundle exec rubocop -l
+- bundle exec rubocop -R
 - bundle exec rake test
+env:
+  global:
+    secure: cUxRf/iO0qOVLrlDsjZ2FlNj5kzN6LxNi9FilFQkc9NXG3wLouAZzHf2NHB49SC/br9K3mLOuBM7cXbSQV4s+KYS2LXdxpbSaqVjlG/uifxXon1LNNHJcSGpYUP60hKwQtdrVRpcq7wdk0i0da+MwyHEOScjT9NmQGVc4GjAe4vhBDj0Xd2vcNgTwXPUC3dHgdnSP8n7PWEICyASWAYAH3cz/hAHaaVLe91iyLu+bBTJxiirKJZ+axMX3ZZCc0Ov4hdWHSLo+/TVD62d5Y4lstSeiEDgDLfCpRcQMo2NM8EUIn7uyj1kntQ/UX2LhCgS9J66sbju60ALaQx1QJUkcNWulbQJAbsfc+6uWqmcVO4JX6zNjSu9SgxkkfLZUECBwhjuCjIo/Hbhw8L1oqsIeFlFdgnIeOjKwFMpxwJRmFsuD/SvX/77bGe5jcjkghIvlpZ7j1w7+LMyRgWGb8JGtiWH6LcBXhTAYPCjXKjMHZ52yocWY+r1ST8LZbSiHPfjlLzryBAMMhmY+ih9t3oF+nsAQW+c+3YBKunvnmwFasx88qEN/Nvi4RZpiC09h45KFKLO7QElVy7nZc58Nuru8H2s9ihlfUgAlKxNCDaEQ1RbxFVyUTRp6kpbySJF2j7A7Jj1eD0BNuAI76ddT+tIZaier3Yvk1xGbgG+RZYXUzM=
+env:
+  global:
+    - CC_TEST_REPORTER_ID=${CODECLIMATE_TOKEN}
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+  
