@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Email < ApplicationRecord
-  validates_presence_of :mailto, :mailbody
+  validates :mailto, :mailbody, presence: true
 end

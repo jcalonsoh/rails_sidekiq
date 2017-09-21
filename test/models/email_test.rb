@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class EmailTest < ActiveSupport::TestCase
-  test "Fail sanving Email" do
+  test 'Fail sanving Email' do
     email = Email.new
     assert_not email.save
   end

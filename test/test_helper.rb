@@ -12,4 +12,3 @@ end
 
 require 'simplecov'
 SimpleCov.start 'rails'
-

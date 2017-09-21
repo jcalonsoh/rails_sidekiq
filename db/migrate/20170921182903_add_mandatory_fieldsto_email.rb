@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddMandatoryFieldstoEmail < ActiveRecord::Migration[5.1]
   def change
     change_column :emails, :mailto, :string, null: false
