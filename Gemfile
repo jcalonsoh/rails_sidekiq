@@ -32,6 +32,7 @@ group :development, :test do
   gem 'rubocop', '~> 0.50.0'
   gem 'simplecov', '~> 0.15.1', require: false
   gem 'travis', '~> 1.8', '>= 1.8.8'
+  gem 'sqlite3', '~> 1.3', '>= 1.3.11'
 end
 
 group :development do
