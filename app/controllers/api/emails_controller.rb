@@ -11,6 +11,7 @@ module Api
       Rails.logger.error params.to_yaml
       email = Email.new(email_params)
       if email.save
+        queue email.id
         render json: email, status: 201, location: email
       else
         render json: email.errors, status: 422
@@ -21,6 +22,10 @@ module Api
 
     def email_params
       params.require(:email).permit(:mailto, :mailbody)
+    end
+
+    def queue(id_mail)
+      EmailsenderJob.perform_later mail_id: id_mail
     end
   end
 end
