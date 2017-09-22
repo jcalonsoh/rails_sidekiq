@@ -31,8 +31,8 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rubocop', '~> 0.50.0'
   gem 'simplecov', '~> 0.15.1', require: false
-  gem 'travis', '~> 1.8', '>= 1.8.8'
   gem 'sqlite3', '~> 1.3', '>= 1.3.11'
+  gem 'travis', '~> 1.8', '>= 1.8.8'
 end
 
 group :development do

@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :emails
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  constraints subdomain: 'api' do
+  namespace :api, path: '/', constraints: { subdomain: 'api' } do
+    resources :emails
   end
 
   require 'sidekiq/web'
