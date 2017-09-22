@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Api
   class EmailsController < ActionController::API
     def index
@@ -5,8 +7,6 @@ module Api
       render json: emails, status: 200
     end
 
-    def create
-      
-    end
+    def create; end
   end
 end
